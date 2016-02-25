@@ -2,8 +2,9 @@ import StringIO
 import urllib
 import zipfile
 import re
+import requests
 
-zip_file = zipfile.ZipFile(StringIO.StringIO(urllib.urlopen('http://www.pythonchallenge.com/pc/def/channel.zip').read()))
+zip_file = zipfile.ZipFile(StringIO.StringIO(requests.get('http://www.pythonchallenge.com/pc/def/channel.zip').read()))
 
 def next(nothing):
     nothing_number = zip_file.read('%s.txt' % nothing)
